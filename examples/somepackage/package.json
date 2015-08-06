@@ -1,0 +1,11 @@
+{
+  "name": "kklinpackage",
+  "version": "0.7.0",
+  "description": "\"package for testing\"",
+  "main": "interface.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kklin",
+  "license": "ISC"
+}

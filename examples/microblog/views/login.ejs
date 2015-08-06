@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %> - Microblog</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+    <style type="text/css">
+    	body {
+    		padding-top: 60px;
+    		padding-bottom: 40px;
+    	}
+    </style>
+    <link href="stylesheets/bootstrap-theme.css" rel='stylesheet' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+ 
+
+  <body>
+
+  	  
+
+  	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  		<div class="navbar-inner">
+  			<div class="container">
+
+			  
+  				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+				</a>
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">Microblog</a>
+				</div>
+				
+				<ul class="nav navbar-nav nav-collapse">
+					<li class="active"><a href="/">首页</a></li>
+					<% if(!user) { %>
+						<li><a href="/login">登入</a></li>
+						<li><a href="/reg">注册</a></li>
+					<% } else { %>
+						<li><a hrref="/logout">登出<a></li>
+					<% } %>
+				</ul>
+				
+			</div>
+		</div>
+	</nav><br/>
+
+	<div id="container" class="container">
+
+			<% if (success) { %>
+			    	<div class="alert alert-success alert-dismissable">
+			    		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+			    		<%= success %>
+			    	</div>
+			    <% } %>
+			     <% if (error) { %>
+			    	<div class="alert alert-error alert-dismissable">
+			    		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+			    		<%= error %>
+			    	</div>
+			    <% } %>
+		<form class="form-horizontal" method="post">
+  		<fieldset>
+  			<legend>用户登入</legend>
+  			<div class="control-group">
+  				<label class="control-label" for="username">用户名</label>
+  				<div class="controls">
+  					<input type="text" class="input-xlarge" id="username" name="username">
+  				</div>
+  			</div>
+  			<div class="control-group">
+  				<label class="control-label" for="password">口令</label>
+  				<div class="controls">
+  					<input type="password" class="input-xlarge" id="password" name="password">
+  				</div>
+  			</div>
+  			<div class="form-actions">
+  				<button type="submit" class="btn btn-primary">登入</button>
+  			</div>
+  		</fieldset>
+  	</form>
+		<hr />
+		<footer>
+			<p><a href="http://www.byvoid.com/" target="_blank">BYVoid</a>2012</p>
+		</footer>
+	</div>
+  </body>
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/javascripts/bootstrap.js"></script>
+  <script>
+
+  $(".nav a").on("click", function(){
+	   $(".nav").find(".active").removeClass("active");
+	   $(this).parent().addClass("active");
+	});
+  
+  </script>
+</html>
+
